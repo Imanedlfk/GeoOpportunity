@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="User" />
         <module name="mongodb (2)" />
         <module name="postgreSQL" />
         <module name="mongodb (3)" />
@@ -39,7 +40,6 @@
       <module name="Trips (1)" target="17" />
       <module name="Trips (2)" target="17" />
       <module name="Trips (3)" target="17" />
-      <module name="User" target="17" />
       <module name="Users" target="17" />
       <module name="vol" target="17" />
       <module name="vol (1)" target="17" />

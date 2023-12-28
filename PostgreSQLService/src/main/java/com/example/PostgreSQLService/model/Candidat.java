@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Candidat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long id;
     private String firstname;
     private String lastname;
