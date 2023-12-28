@@ -1,4 +1,4 @@
-package com.MysqlService.MysqlService.model;
+package com.example.PostgreSQLService.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,8 +22,12 @@ public class Entreprise {
     private String latitude;
     private String email;
     private String phone;
+
+    @OneToOne
+    private Recruteur recruteurs;
+
     @OneToMany(mappedBy = "entreprise", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Recruteur> recruteurs = new ArrayList<>();
+    private List<Offre> offres = new ArrayList<>();
 
 
 }

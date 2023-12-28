@@ -15,6 +15,7 @@
         <module name="mongodb (4)" />
         <module name="redisdb" />
         <module name="configserver" />
+        <module name="Offres" />
         <module name="gateway" />
         <module name="PostgreSQLService" />
       </profile>
@@ -52,6 +53,7 @@
       <module name="MarketPlaces" options="-parameters" />
       <module name="MysqlService (1)" options="-parameters" />
       <module name="MysqlService (2)" options="-parameters" />
+      <module name="Offres" options="-parameters" />
       <module name="PostgreSQLService" options="-parameters" />
       <module name="Station" options="-parameters" />
       <module name="StationP" options="-parameters" />

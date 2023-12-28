@@ -1,13 +1,13 @@
-package com.MysqlService.MysqlService;
+package com.example.PostgreSQLService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MysqlServiceApplication {
+public class PostgreSQLServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MysqlServiceApplication.class, args);
+		SpringApplication.run(PostgreSQLServiceApplication.class, args);
 	}
 
 }

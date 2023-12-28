@@ -1,4 +1,4 @@
-package com.MysqlService.MysqlService.model;
+package com.example.PostgreSQLService.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,8 +18,8 @@ public class Recruteur {
     private String username;
     private String password;
     private String phone;
-    @ManyToOne
-    @JoinColumn(name = "entreprise_id")
+
+    @OneToOne
     private Entreprise entreprise;
 
 }

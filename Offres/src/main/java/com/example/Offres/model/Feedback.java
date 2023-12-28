@@ -1,5 +1,7 @@
-package com.MysqlService.MysqlService.model;
-import jakarta.persistence.Entity;
+package com.example.Offres.model;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,9 +19,13 @@ public class Feedback {
     private long id;
     private String description;
     private Date date;
+
+    @JsonManagedReference("Candidat_Feedb")
     @ManyToOne
     @JoinColumn(name = "candidat_id")
     private Candidat candidat;
+
+    @JsonBackReference("Offre_Feedb")
     @ManyToOne
     @JoinColumn(name = "offre_id")
     private Offre offre;

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -24,6 +25,8 @@
         <option value="$PROJECT_DIR$/MarketPlaces/pom.xml" />
         <option value="$PROJECT_DIR$/Users/pom.xml" />
         <option value="$PROJECT_DIR$/MarketPlace/pom.xml" />
+        <option value="$PROJECT_DIR$/PostgreSQLService/pom.xml" />
+        <option value="$PROJECT_DIR$/Offres/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
