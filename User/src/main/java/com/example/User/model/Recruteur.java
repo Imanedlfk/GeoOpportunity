@@ -1,7 +1,8 @@
-package com.example.PostgreSQLService.dto;
+package com.example.User.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RecruteurDTO {
+public class Recruteur {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String firstname;
     private String lastname;
@@ -17,6 +20,7 @@ public class RecruteurDTO {
     private String password;
     private String phone;
 
-    private Long entrepriseID;
+
+    private Entreprise entreprise;
 
 }

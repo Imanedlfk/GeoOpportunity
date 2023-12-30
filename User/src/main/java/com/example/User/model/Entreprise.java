@@ -1,8 +1,8 @@
-package com.example.PostgreSQLService.dto;
+package com.example.User.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EntrepriseDTO {
+public class Entreprise {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nom;
     private String adresse;
@@ -22,6 +24,8 @@ public class EntrepriseDTO {
     private String email;
     private String phone;
 
-    private long recruteurID;
-    private List<Long> offresID;
+
+    private Recruteur recruteurs;
+
+   private List<Offre> offres = new ArrayList<>();
 }

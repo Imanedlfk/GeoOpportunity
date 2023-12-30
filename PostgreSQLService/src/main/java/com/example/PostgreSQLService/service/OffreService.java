@@ -1,6 +1,5 @@
 package com.example.PostgreSQLService.service;
 
-import com.example.PostgreSQLService.dto.OffreDTO;
 import com.example.PostgreSQLService.model.Offre;
 import com.example.PostgreSQLService.repository.OffreRepository;
 import org.modelmapper.ModelMapper;
