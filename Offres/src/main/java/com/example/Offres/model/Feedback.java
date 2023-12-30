@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,13 +19,9 @@ public class Feedback {
     private String description;
     private Date date;
 
-    @JsonManagedReference("Candidat_Feedb")
-    @ManyToOne
-    @JoinColumn(name = "candidat_id")
+
     private Candidat candidat;
 
-    @JsonBackReference("Offre_Feedb")
-    @ManyToOne
-    @JoinColumn(name = "offre_id")
+
     private Offre offre;
 }

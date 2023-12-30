@@ -1,4 +1,4 @@
-package com.example.Offres.model;
+package com.example.PostgreSQLService.dto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,9 +12,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Offre {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OffreDTO {
     private long id;
     private String libelle;
     private Date dateCreation;
@@ -23,9 +21,9 @@ public class Offre {
     private String domaine;
     private String contrat;
 
-    private List<Feedback> feedbacks = new ArrayList<>();
+    private List<Long> feedbacksID;
 
-    private List<Candidat> candidats = new ArrayList<>();
+    private List<Long> candidatsID;
 
-    private Entreprise entreprise;
+    private Long entrepriseID;
 }

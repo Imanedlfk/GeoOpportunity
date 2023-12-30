@@ -1,7 +1,11 @@
 package com.example.PostgreSQLService.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,5 +36,4 @@ public class Offre {
     @ManyToOne
     @JoinColumn(name = "entreprise_id")
     private Entreprise entreprise;
-
 }

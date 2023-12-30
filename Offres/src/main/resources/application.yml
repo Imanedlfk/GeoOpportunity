@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: Trip
+    name: Offres
   config:
     import: optional:configserver:http://localhost:8888
   datasource:

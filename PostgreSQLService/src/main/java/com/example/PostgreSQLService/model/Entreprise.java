@@ -1,5 +1,8 @@
 package com.example.PostgreSQLService.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +29,7 @@ public class Entreprise {
     @OneToOne
     private Recruteur recruteurs;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "entreprise", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Offre> offres = new ArrayList<>();
-
-
 }

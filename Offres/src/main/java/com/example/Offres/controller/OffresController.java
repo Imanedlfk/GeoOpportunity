@@ -11,16 +11,13 @@ import java.util.List;
 @RequestMapping("/offre")
 public class OffresController {
     private final OffresService Service;
-
     public OffresController(OffresService service) {
         Service = service;
     }
-
     @GetMapping
     public List<Offre> getAllOffres() {
         return Service.getAllOffres();
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<Offre> getOffresById(@PathVariable long id) {
         return Service.getById(id)

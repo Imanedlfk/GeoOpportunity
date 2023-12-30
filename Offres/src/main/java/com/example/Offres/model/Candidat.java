@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,11 +23,7 @@ public class Candidat {
     private String phone;
     private String CV;
 
-    @JsonBackReference("Candidat_Feedb")
-    @OneToMany(mappedBy = "candidat", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Feedback> feedbacks = new ArrayList<>();
 
-    @JsonBackReference("Offre_Candidat")
-    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "candidats")
     private List<Offre> offres = new ArrayList<>();
 }

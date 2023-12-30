@@ -1,8 +1,9 @@
 package com.example.PostgreSQLService.service;
 
+import com.example.PostgreSQLService.dto.OffreDTO;
 import com.example.PostgreSQLService.model.Offre;
 import com.example.PostgreSQLService.repository.OffreRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

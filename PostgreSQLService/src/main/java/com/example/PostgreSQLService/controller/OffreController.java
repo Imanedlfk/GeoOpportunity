@@ -2,7 +2,6 @@ package com.example.PostgreSQLService.controller;
 
 import com.example.PostgreSQLService.model.Offre;
 import com.example.PostgreSQLService.service.OffreService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

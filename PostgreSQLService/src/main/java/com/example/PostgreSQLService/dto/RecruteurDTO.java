@@ -1,4 +1,4 @@
-package com.example.Offres.model;
+package com.example.PostgreSQLService.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Recruteur {
-    @Id
+public class RecruteurDTO {
     private long id;
     private String firstname;
     private String lastname;
@@ -18,7 +17,6 @@ public class Recruteur {
     private String password;
     private String phone;
 
-
-    private Entreprise entreprise;
+    private Long entrepriseID;
 
 }
