@@ -12,8 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Recruteur {
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long id;
     private String firstname;
     private String lastname;
