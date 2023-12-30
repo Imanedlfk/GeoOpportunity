@@ -11,7 +11,7 @@
 	<groupId>com.MysqlService</groupId>
 	<artifactId>PostgreSQLService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MysqlService</name>
+	<name>PostgreSQLService</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
