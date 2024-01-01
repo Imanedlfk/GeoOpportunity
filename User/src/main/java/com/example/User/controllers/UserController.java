@@ -41,7 +41,7 @@ public class UserController {
 
     /***Add a new  candidate**/
     @PostMapping(value = "/createCandidate")
-    public Candidat createCandidateInBase(
+    public ResponseEntity<String> createCandidateInBase(
             @RequestParam String firstname,
             @RequestParam String lastname,
             @RequestParam String username,
@@ -58,7 +58,14 @@ public class UserController {
         candidat.setPhone(phone);
         candidat.setCV(CV);
 
-        return candidatService.saveCandidat(candidat);
+
+        int result = candidatService.saveCandidat(candidat);
+
+        if (result == 1) {
+            return ResponseEntity.ok().body("Candidate created successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Email already exists");
+        }
 
     }
 
