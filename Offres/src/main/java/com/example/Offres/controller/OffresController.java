@@ -24,6 +24,13 @@ public class OffresController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+    @GetMapping("/OffreByVille/{ville}")
+    public List<Offre> getFitlreVille(@PathVariable String ville) {
+        return Service.getFiltreVille(ville);
+    }
+
+
+
 
     @PostMapping
     public Offre createOffres(@RequestBody Offre offre) {

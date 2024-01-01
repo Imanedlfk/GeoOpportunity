@@ -21,8 +21,6 @@ public class Entreprise {
     private long id;
     private String nom;
     private String adresse;
-    private String longitude;
-    private String latitude;
     private String email;
     private String phone;
 

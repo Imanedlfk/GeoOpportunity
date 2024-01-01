@@ -22,6 +22,9 @@ public class Offre {
     private String description;
     private String domaine;
     private String contrat;
+    private String longitude;
+    private String latitude;
+    private String ville;
 
     private List<Feedback> feedbacks = new ArrayList<>();
 
