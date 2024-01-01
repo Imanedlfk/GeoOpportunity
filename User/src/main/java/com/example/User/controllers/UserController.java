@@ -32,7 +32,7 @@ public class UserController {
 
     /***
     /***Get All User ********/
-    @GetMapping("AllCandidates")
+    @GetMapping("/AllCandidates")
     public List<Candidat> getAllCandidates() {
 
         return candidatService.getAllCandidat();
@@ -95,7 +95,7 @@ public class UserController {
     /************************Methods for Recruiter******/
     /***
      /***Get All Recruiter ********/
-    @GetMapping("AllRecruiters")
+    @GetMapping("/AllRecruiters")
     public List<Recruteur> getAllRecruiters() {
 
         return recruteurService.getAllRec();
