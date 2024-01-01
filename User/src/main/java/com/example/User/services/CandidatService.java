@@ -21,7 +21,7 @@ public class CandidatService{
 
         Candidat cand = findCandidatByEmail(candidat.getUsername());
 
-        if(cand!=null)
+        if(cand==null)
         {
             String hashedPassword = BCrypt.hashpw(candidat.getPassword(), BCrypt.gensalt());
             candidat.setPassword(hashedPassword);
