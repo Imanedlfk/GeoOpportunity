@@ -18,13 +18,22 @@ public class RecruteurService {
 
 
     /**Add New Recruiter*/
-    public Recruteur saveRecruteur(Recruteur recruteur) {
+    public Long saveRecruteur(Recruteur recruteur) {
 
+        Recruteur Rec = client.findRecByEmail(recruteur.getUsername());
+
+        if (Rec==null)
+        {
+            String hashedPassword = BCrypt.hashpw(recruteur.getPassword(), BCrypt.gensalt());
+            recruteur.setPassword(hashedPassword);
+            Recruteur RC = client.save(recruteur);
+            return RC.getId();
+
+        }else{
+            return (long) -1;
+        }
         // Hacher le mot de passe avant de l'enregistrer
-        String hashedPassword = BCrypt.hashpw(recruteur.getPassword(), BCrypt.gensalt());
-        recruteur.setPassword(hashedPassword);
 
-        return client.save(recruteur);
     }
 
     /**Get All Recruiter from database ****/

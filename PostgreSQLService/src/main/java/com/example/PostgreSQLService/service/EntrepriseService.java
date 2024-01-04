@@ -2,6 +2,7 @@ package com.example.PostgreSQLService.service;
 
 import com.example.PostgreSQLService.model.Entreprise;
 import com.example.PostgreSQLService.repository.EntrepriseRepository;
+import com.example.User.model.Recruteur;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -29,5 +30,10 @@ public class EntrepriseService {
     public List<Entreprise> findAll() {
         return Repo.findAll();
     }
+
+    public Entreprise findByName(String nom) {
+        return Repo.findByNom(nom);}
+        //System.out.println("Id OF entreprise : "+ E.getId());
+       // return E;
 }
 

@@ -19,8 +19,6 @@ public class Recruteur {
     private String username;
     private String password;
     private String phone;
-
-
     private Entreprise entreprise;
 
 }

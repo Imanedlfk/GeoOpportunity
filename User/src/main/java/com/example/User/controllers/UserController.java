@@ -1,5 +1,7 @@
 package com.example.User.controllers;
+import com.example.User.model.Entreprise;
 import com.example.User.model.Recruteur;
+import com.example.User.services.EntrepriseService;
 import com.example.User.services.RecruteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,11 +23,14 @@ public class UserController {
     private final CandidatService candidatService;
     private final RecruteurService recruteurService;
 
+    private final EntrepriseService entrepriseService;
+
     @Autowired
-    public UserController(CandidatService candidatService , RecruteurService recruteurService) {
+    public UserController(CandidatService candidatService , RecruteurService recruteurService,EntrepriseService entrepriseService ) {
 
         this.candidatService = candidatService;
         this.recruteurService = recruteurService;
+        this.entrepriseService= entrepriseService;
 
     }
 
@@ -41,7 +46,7 @@ public class UserController {
 
     /***Add a new  candidate**/
     @PostMapping(value = "/createCandidate")
-    public Candidat createCandidateInBase(
+    public ResponseEntity<String> createCandidateInBase(
             @RequestParam String firstname,
             @RequestParam String lastname,
             @RequestParam String username,
@@ -58,7 +63,14 @@ public class UserController {
         candidat.setPhone(phone);
         candidat.setCV(CV);
 
-        return candidatService.saveCandidat(candidat);
+
+        int result = candidatService.saveCandidat(candidat);
+
+        if (result == 1) {
+            return ResponseEntity.ok().body("Candidate created successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Email already exists");
+        }
 
     }
 
@@ -97,25 +109,56 @@ public class UserController {
 
     /***Add a new  Recruiter**/
     @PostMapping(value = "/createRecruiter")
-    public Recruteur createRecruiterInBase(
+    public ResponseEntity<String>  createRecruiterInBase(
 
             @RequestParam String firstname,
             @RequestParam String lastname,
             @RequestParam String username,
             @RequestParam String password,
-            @RequestParam String phone
-           ) {
+            @RequestParam String phone,
+            @RequestParam String adresse,
+            @RequestParam String nom
+
+    ) {
 
 
         Recruteur recruteur = new Recruteur();
-        System.out.println("HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERE : "+recruteur.getId());
         recruteur.setFirstname(firstname);
         recruteur.setLastname(lastname);
         recruteur.setUsername(username);
         recruteur.setPassword(password);
         recruteur.setPhone(phone);
 
-        return recruteurService.saveRecruteur(recruteur);
+        Entreprise Ent = new Entreprise();
+        Ent.setNom(nom);
+        Ent.setAdresse(adresse);
+       // Ent.setRecruteurs(recruteur);
+        Ent.setPhone(phone);
+        Ent.setEmail(username);
+        Ent.setLatitude("0");
+        Ent.setLongitude("0");
+
+        Entreprise EntrepiseTest = entrepriseService.findByName(nom);
+
+        if(EntrepiseTest == null){
+
+            Long result = recruteurService.saveRecruteur(recruteur);
+
+
+
+           if (result != -1) {
+
+                Ent.setRecruteurs(recruteurService.getRecruiterById(result));
+                System.out.println("Id OF Recuirter : " +recruteur.getId());
+                entrepriseService.save(Ent);
+                return ResponseEntity.ok().body(" Recruiter And Entreprise created successfully");
+            } else {
+                return ResponseEntity.badRequest().body("Email already exists");
+            }
+        }else{
+            return ResponseEntity.badRequest().body("Entreprise already exists");
+        }
+
     }
 
     /** Authentification **/
@@ -133,25 +176,6 @@ public class UserController {
     }
 
 
-
-
-
-
-
 }
 
 
-/*curl -X POST -H "Content-Type: application/json" -d '{
-        "firstname": "Asmae",
-        "lastname": "ELMANNANI",
-        "username": "Asmae.ELM",
-        "password": "123",
-        "phone": "123456789",
-        "CV": "path/to/cv.pdf"
-        }' http://localhost:8095/api/createCandidate*/
-
-
-/**
- *
- * curl -X POST -H "Content-Type: application/json" -d "{\"firstname\": \"Asmae\",\"lastname\": \"ELMANNANI\",\"username\": \"Asmae.ELM\",\"password\": \"123\",\"phone\": \"123456789\",\"CV\": \"pathCV\"}" http://localhost:8095/api/createCandidate
- */

@@ -2,6 +2,7 @@ package com.example.PostgreSQLService.controller;
 
 import com.example.PostgreSQLService.model.Entreprise;
 import com.example.PostgreSQLService.service.EntrepriseService;
+import com.example.User.model.Recruteur;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -35,4 +36,7 @@ public class EntrepriseController {
     List<Entreprise> findAll() {
         return Service.findAll();
     }
+
+    @GetMapping("/ByName/{nom}")
+    Entreprise findEntrByName(@PathVariable("nom") String nom){ return Service.findByName(nom); }
 }
