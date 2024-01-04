@@ -35,4 +35,7 @@ public class EntrepriseController {
     List<Entreprise> findAll() {
         return Service.findAll();
     }
+
+    @GetMapping("/ByName/{nom}")
+    Entreprise findEntrByName(@PathVariable("nom") String nom){ return Service.findByName(nom); }
 }

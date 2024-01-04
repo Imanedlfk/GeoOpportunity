@@ -1,8 +1,8 @@
 package com.example.Offres.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +19,6 @@ public class Entreprise {
     private long id;
     private String nom;
     private String adresse;
-    private String longitude;
-    private String latitude;
     private String email;
     private String phone;
 

@@ -24,6 +24,8 @@ public class Offre {
     private String description;
     private String domaine;
     private String contrat;
+    private float longitude;
+    private float latitude;
 
     private List<Feedback> feedbacks = new ArrayList<>();
 

@@ -1,6 +1,8 @@
 package com.example.Offres.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,9 +24,8 @@ public class Offre {
     private String description;
     private String domaine;
     private String contrat;
-    private String longitude;
-    private String latitude;
-    private String ville;
+    private float longitude;
+    private float latitude;
 
     private List<Feedback> feedbacks = new ArrayList<>();
 

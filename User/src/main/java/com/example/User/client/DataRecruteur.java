@@ -23,4 +23,5 @@ public interface DataRecruteur {
 
     @PostMapping("/Add")
     Recruteur save(@RequestBody Recruteur recruteur);
+
 }

@@ -17,13 +17,20 @@ public class CandidatService{
 
 
     /**Add New Candidat*/
-    public Candidat saveCandidat(Candidat candidat) {
+    public int saveCandidat(Candidat candidat) {
 
-        // Hacher le mot de passe avant de l'enregistrer
-        String hashedPassword = BCrypt.hashpw(candidat.getPassword(), BCrypt.gensalt());
-        candidat.setPassword(hashedPassword);
+        Candidat cand = findCandidatByEmail(candidat.getUsername());
 
-        return client.save(candidat);
+        if(cand==null)
+        {
+            String hashedPassword = BCrypt.hashpw(candidat.getPassword(), BCrypt.gensalt());
+            candidat.setPassword(hashedPassword);
+            client.save(candidat);
+            return 1;
+        }else{
+            return -1;
+        }
+
     }
 
     /**Get All candidat ****/
@@ -64,3 +71,4 @@ public class CandidatService{
         }
     }
 }
+

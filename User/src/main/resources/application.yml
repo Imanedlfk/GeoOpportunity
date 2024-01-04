@@ -23,3 +23,4 @@ application:
   config:
     DataCANDIDAT-url: http://localhost:8095/api/vi/candidats
     DataRECRUTEUR-url: http://localhost:8095/api/vi/recruteurs
+    DataENTRP-url: http://localhost:8095/api/vi/entreprises

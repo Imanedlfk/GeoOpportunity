@@ -61,5 +61,13 @@ public class OffresController {
     }
     //////////////////////////METIER////////////////////////////////
 
+    //DOMAINE CONTRAT
+    @GetMapping(value = "/filtreDomContrat")
+    public List<Offre> filtreDomContrat(@RequestParam String domaine, @RequestParam String contrat)
+    {
+        return Service.filtrDomaineContrat(domaine,contrat);
+    }
+
+
 }
 
