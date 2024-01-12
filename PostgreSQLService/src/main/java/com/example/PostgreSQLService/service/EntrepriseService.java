@@ -2,7 +2,6 @@ package com.example.PostgreSQLService.service;
 
 import com.example.PostgreSQLService.model.Entreprise;
 import com.example.PostgreSQLService.repository.EntrepriseRepository;
-import com.example.User.model.Recruteur;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;

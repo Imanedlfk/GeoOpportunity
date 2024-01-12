@@ -40,4 +40,8 @@ public class OffresService {
         }
         return finals;
     }
+
+    public List<Offre> filtrDomaineContrat(String domaine, String contrat) {
+        return client.filtreDC(domaine,contrat);
+    }
 }

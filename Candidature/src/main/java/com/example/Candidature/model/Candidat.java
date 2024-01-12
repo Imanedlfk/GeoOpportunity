@@ -1,4 +1,4 @@
-package com.example.Offres.model;
+package com.example.Candidature.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,18 +7,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Recruteur {
+public class Candidat {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private long id;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
     private String phone;
-    private Entreprise entreprise;
+    private String CV;
 
+    private List<Feedback> feedbacks = new ArrayList<>();
+
+    private List<Offre> offres = new ArrayList<>();
 }

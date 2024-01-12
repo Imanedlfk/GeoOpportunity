@@ -1,4 +1,4 @@
-package com.example.User.model;
+package com.example.Candidature.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,23 +7,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Entreprise {
+public class Recruteur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nom;
-    private String adresse;
-    private String email;
+    private String firstname;
+    private String lastname;
+    private String username;
+    private String password;
     private String phone;
+    private Entreprise entreprise;
 
-
-    private Recruteur recruteurs;
-
-   private List<Offre> offres = new ArrayList<>();
 }

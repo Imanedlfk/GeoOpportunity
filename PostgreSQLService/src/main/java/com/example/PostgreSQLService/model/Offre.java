@@ -25,8 +25,8 @@ public class Offre {
     private String description;
     private String domaine;
     private String contrat;
-    private String longitude;
-    private String latitude;
+    private float longitude;
+    private float latitude;
     private String ville;
 
     @OneToMany(mappedBy = "offre", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

@@ -1,14 +1,14 @@
-package com.example.PostgreSQLService.model;
+package com.example.Candidature.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,13 +18,6 @@ public class Feedback {
     private long id;
     private String description;
     private Date date;
-
-    @ManyToOne
-    @JoinColumn(name = "candidat_id")
     private Candidat candidat;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "offre_id")
     private Offre offre;
 }

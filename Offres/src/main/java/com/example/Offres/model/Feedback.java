@@ -1,8 +1,8 @@
 package com.example.Offres.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,10 +18,6 @@ public class Feedback {
     private long id;
     private String description;
     private Date date;
-
-
     private Candidat candidat;
-
-
     private Offre offre;
 }

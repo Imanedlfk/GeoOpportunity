@@ -35,4 +35,10 @@ public class OffreController {
     List<Offre> findAll() {
         return Service.findAll();
     }
+
+
+    @GetMapping(value = "/filtreDC")
+    List<Offre> filtreDC(@RequestParam String domaine, @RequestParam String contrat){
+        return Service.filtreDomContr(domaine,contrat);
+    }
 }

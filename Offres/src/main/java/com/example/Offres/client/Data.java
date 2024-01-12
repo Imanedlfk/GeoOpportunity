@@ -21,4 +21,7 @@ public interface Data {
 
     @GetMapping("/All")
     List<Offre> findAll();
+
+    @GetMapping(value = "/filtreDC")
+    List<Offre> filtreDC(@RequestParam String domaine, @RequestParam String contrat);
 }

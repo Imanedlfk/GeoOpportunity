@@ -32,4 +32,8 @@ public class OffreService {
     public List<Offre> findAll() {
         return Repo.findAll();
     }
+
+    public List<Offre> filtreDomContr(String domaine, String contrat) {
+        return Repo.findByDomaineAndContrat(domaine, contrat);
+    }
 }

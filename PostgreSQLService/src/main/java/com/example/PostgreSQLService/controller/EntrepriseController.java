@@ -2,7 +2,6 @@ package com.example.PostgreSQLService.controller;
 
 import com.example.PostgreSQLService.model.Entreprise;
 import com.example.PostgreSQLService.service.EntrepriseService;
-import com.example.User.model.Recruteur;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
