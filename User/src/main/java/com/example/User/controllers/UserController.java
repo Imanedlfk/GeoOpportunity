@@ -47,23 +47,8 @@ public class UserController {
     /***Add a new  candidate**/
     @PostMapping(value = "/createCandidate")
     public ResponseEntity<String> createCandidateInBase(
-            @RequestParam String firstname,
-            @RequestParam String lastname,
-            @RequestParam String username,
-            @RequestParam String password,
-            @RequestParam String phone,
-            @RequestParam String CV) {
-
-
-        Candidat candidat = new Candidat();
-        candidat.setFirstname(firstname);
-        candidat.setLastname(lastname);
-        candidat.setUsername(username);
-        candidat.setPassword(password);
-        candidat.setPhone(phone);
-        candidat.setCV(CV);
-
-
+            @RequestBody Candidat candidat
+          ) {
         int result = candidatService.saveCandidat(candidat);
 
         if (result == 1) {
@@ -71,7 +56,6 @@ public class UserController {
         } else {
             return ResponseEntity.badRequest().body("Email already exists");
         }
-
     }
 
 
@@ -84,12 +68,12 @@ public class UserController {
 
     /** Authentification **/
     @PostMapping("/authenticateCand")
-    public ResponseEntity<String> authenticate(@RequestParam String email, @RequestParam String password) throws AuthenticationException {
+    public ResponseEntity<?> authenticate(@RequestParam String email, @RequestParam String password) throws AuthenticationException {
         Candidat candidat = candidatService.authenticate(email, password);
 
         if (candidat != null) {
             // Authentification réussie
-            return new ResponseEntity<>("Authentification réussie.", HttpStatus.OK);
+            return new ResponseEntity<>(candidat, HttpStatus.OK);
         } else {
             // Authentification échouée
             return new ResponseEntity<>("Email ou mot de passe incorrect.", HttpStatus.UNAUTHORIZED);
@@ -120,8 +104,6 @@ public class UserController {
             @RequestParam String nom
 
     ) {
-
-
         Recruteur recruteur = new Recruteur();
         recruteur.setFirstname(firstname);
         recruteur.setLastname(lastname);
@@ -174,8 +156,6 @@ public class UserController {
             return new ResponseEntity<>("Email ou mot de passe incorrect.", HttpStatus.UNAUTHORIZED);
         }
     }
-
-
 }
 
 

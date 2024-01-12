@@ -5,8 +5,9 @@ import com.example.Offres.service.OffresService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+        import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/offre")
 public class OffresController {
@@ -32,7 +33,7 @@ public class OffresController {
 
 
 
-    @PostMapping
+    @PostMapping("/Add")
     public Offre createOffres(@RequestBody Offre offre) {
 
         return Service.save(offre);

@@ -23,6 +23,7 @@ public class CandidatService{
 
         if(cand==null)
         {
+
             String hashedPassword = BCrypt.hashpw(candidat.getPassword(), BCrypt.gensalt());
             candidat.setPassword(hashedPassword);
             client.save(candidat);

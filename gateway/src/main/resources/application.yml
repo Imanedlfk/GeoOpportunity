@@ -16,22 +16,51 @@ spring:
         locator:
           enabled: true
       routes:
-            - id: vols
-              uri: http://localhost:8020
+            - id: MicroService_User
+              uri: http://localhost:8096
               predicates:
-                - Path=/vol/**
-              filters:
-                - AuthenticationFilter
+                - Path=/user/**
+              metadata:
+                cors:
+                  allowedOrigins: '*'
+                  allowedMethods:
+                    - GET
+                    - POST
+                  allowedHeaders: '*'
 
-            - id: reservations
-              uri: http://localhost:8030
+            - id: MicroService_User_Entreprsie
+              uri: http://localhost:8096
               predicates:
-               - Path=/reservation/**
-              filters:
-                - AuthenticationFilter
+                - Path=/entreprise/**
+              metadata:
+                cors:
+                  allowedOrigins: '*'
+                  allowedMethods:
+                    - GET
+                    - POST
+                  allowedHeaders: '*'
 
-            - id: security
-              uri: http://localhost:8050
+            - id: MicroService_Offre
+              uri: http://localhost:8093
               predicates:
-               - Path=/auth/**
+               - Path=/offre/**
+              metadata:
+                cors:
+                  allowedOrigins: '*'
+                  allowedMethods:
+                    - GET
+                    - POST
+                  allowedHeaders: '*'
+
+            - id: MicroService_Offre_Entreprise
+              uri: http://localhost:8093
+              predicates:
+                - Path=/entreprise/**
+              metadata:
+                cors:
+                  allowedOrigins: '*'
+                  allowedMethods:
+                    - GET
+                    - POST
+                  allowedHeaders: '*'
 
