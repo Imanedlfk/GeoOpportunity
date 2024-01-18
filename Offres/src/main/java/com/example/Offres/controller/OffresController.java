@@ -1,20 +1,28 @@
 package com.example.Offres.controller;
 
 import com.example.Offres.model.Offre;
+import com.example.Offres.model.Recruteur;
 import com.example.Offres.service.OffresService;
+import com.example.Offres.service.RecruteurService;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
+import java.util.List;
 
-@CrossOrigin(origins = "*")
+@AllArgsConstructor
 @RestController
 @RequestMapping("/offre")
 public class OffresController {
+
+    @Autowired
     private final OffresService Service;
-    public OffresController(OffresService service) {
-        Service = service;
-    }
+    @Autowired
+    private final RecruteurService recruteurService;
+
+
+
     @GetMapping
     public List<Offre> getAllOffres() {
         return Service.getAllOffres();
@@ -29,16 +37,11 @@ public class OffresController {
     public List<Offre> getFitlreVille(@PathVariable String ville) {
         return Service.getFiltreVille(ville);
     }
-
-
-
-
-    @PostMapping("/Add")
+    @PostMapping
     public Offre createOffres(@RequestBody Offre offre) {
 
         return Service.save(offre);
     }
-
     @PutMapping("/{id}")
     public ResponseEntity<Offre> updateOffres(@PathVariable long id, @RequestBody Offre offre) {
         if (Service.getById(id).isPresent()) {
@@ -48,7 +51,6 @@ public class OffresController {
             return ResponseEntity.notFound().build();
         }
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOffres(@PathVariable long id) {
         if (Service.getById(id).isPresent()) {
@@ -67,6 +69,21 @@ public class OffresController {
     public List<Offre> filtreDomContrat(@RequestParam String domaine, @RequestParam String contrat)
     {
         return Service.filtrDomaineContrat(domaine,contrat);
+    }
+
+    //GET ALL CONDIDATEURS D UNE ENTREPRISE
+    @GetMapping("/CandidaturesENTPS/{id}")
+    public List<Offre> getCandidature(@PathVariable Long id) {
+        Recruteur rec=recruteurService.getRecruiterById(id);
+        return Service.getOffresRecrt(rec);
+    }
+
+
+
+    // POSTULER UN CANDIDAT A UN OFFRE
+    @PostMapping("/{offreId}/postuler/{candidatId}")
+    public String postuler(@PathVariable long offreId, @PathVariable long candidatId) {
+        return Service.postulerCandidat(offreId,candidatId);
     }
 
 

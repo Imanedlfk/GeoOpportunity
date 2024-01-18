@@ -1,6 +1,7 @@
 package com.example.PostgreSQLService.controller;
 
 import com.example.PostgreSQLService.model.Entreprise;
+import com.example.PostgreSQLService.model.Recruteur;
 import com.example.PostgreSQLService.service.EntrepriseService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -24,6 +25,11 @@ public class EntrepriseController {
     @PostMapping("/Add")
     Entreprise save(@RequestBody Entreprise entreprise) {
         return Service.save(entreprise);
+    }
+
+    @PostMapping("/EntrpByRec")
+    Entreprise getByRec(@RequestBody Recruteur rec) {
+        return Service.getByRec(rec);
     }
 
     @GetMapping("/{id}")

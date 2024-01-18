@@ -1,6 +1,7 @@
 package com.example.Offres.client;
 
 import com.example.Offres.model.Entreprise;
+import com.example.Offres.model.Recruteur;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,4 +22,7 @@ public interface DataEntrep {
 
     @GetMapping("/All")
     List<Entreprise> findAll();
+
+    @GetMapping("/EntrpByRec")
+    Entreprise getByRec(@RequestBody Recruteur rec);
 }

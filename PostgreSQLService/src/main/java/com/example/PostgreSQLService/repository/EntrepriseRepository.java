@@ -13,6 +13,5 @@ public interface EntrepriseRepository extends JpaRepository<Entreprise, Long> {
     Entreprise findByNom(@Param("nom") String nom);
 
 
-
-
+    Entreprise findByRecruteurs(Recruteur rec);
 }

@@ -117,8 +117,6 @@ public class UserController {
        // Ent.setRecruteurs(recruteur);
         Ent.setPhone(phone);
         Ent.setEmail(username);
-        Ent.setLatitude("0");
-        Ent.setLongitude("0");
 
         Entreprise EntrepiseTest = entrepriseService.findByName(nom);
 

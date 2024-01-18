@@ -24,6 +24,7 @@ public class Offre {
     private String description;
     private String domaine;
     private String contrat;
+    private String ville;
     private float longitude;
     private float latitude;
 

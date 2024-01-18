@@ -1,6 +1,7 @@
 package com.example.PostgreSQLService.service;
 
 import com.example.PostgreSQLService.model.Entreprise;
+import com.example.PostgreSQLService.model.Recruteur;
 import com.example.PostgreSQLService.repository.EntrepriseRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -32,7 +33,11 @@ public class EntrepriseService {
 
     public Entreprise findByName(String nom) {
         return Repo.findByNom(nom);}
-        //System.out.println("Id OF entreprise : "+ E.getId());
-       // return E;
+
+    public Entreprise getByRec(Recruteur rec) {
+        return Repo.findByRecruteurs(rec);
+    }
+    //System.out.println("Id OF entreprise : "+ E.getId());
+    // return E;
 }
 
