@@ -1,6 +1,7 @@
 package com.example.Offres.controller;
 
 import com.example.Offres.model.Entreprise;
+import com.example.Offres.model.Feedback;
 import com.example.Offres.service.EntrepriseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +54,7 @@ public class EntrepriseController {
         }
     }
     //////////////////////////METIER////////////////////////////////
+
 
 }
 

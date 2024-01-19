@@ -3,10 +3,7 @@ package com.example.Offres.service;
 import com.example.Offres.client.Data;
 import com.example.Offres.client.DataCandidat;
 import com.example.Offres.client.DataEntrep;
-import com.example.Offres.model.Candidat;
-import com.example.Offres.model.Entreprise;
-import com.example.Offres.model.Offre;
-import com.example.Offres.model.Recruteur;
+import com.example.Offres.model.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -79,5 +76,11 @@ public class OffresService {
         return "Candidat has successfully applied to the job.";
 
 
+    }
+
+    public List<Feedback> getFeedsByID(long offreId) {
+        Optional<Offre> off=client.findById(offreId);
+        Entreprise E=off.get().getEntreprise();
+        return E.getFeedbacks();
     }
 }

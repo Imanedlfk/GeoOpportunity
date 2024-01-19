@@ -1,5 +1,6 @@
 package com.example.Offres.controller;
 
+import com.example.Offres.model.Feedback;
 import com.example.Offres.model.Offre;
 import com.example.Offres.model.Recruteur;
 import com.example.Offres.service.OffresService;
@@ -39,7 +40,6 @@ public class OffresController {
     }
     @PostMapping
     public Offre createOffres(@RequestBody Offre offre) {
-
         return Service.save(offre);
     }
     @PutMapping("/{id}")
@@ -87,5 +87,10 @@ public class OffresController {
     }
 
 
+    //GET FEEDBACKS ENTREP
+    @GetMapping("/{offreId}")
+    public List<Feedback> getFeedByIdOff(@PathVariable long offreId) {
+        return Service.getFeedsByID(offreId);
+    }
 }
 

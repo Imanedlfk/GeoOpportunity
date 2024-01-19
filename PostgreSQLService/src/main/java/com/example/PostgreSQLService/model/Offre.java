@@ -29,8 +29,6 @@ public class Offre {
     private float latitude;
     private String ville;
 
-    @OneToMany(mappedBy = "offre", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Feedback> feedbacks = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "offre_candidat", joinColumns = { @JoinColumn(name = "offre_id") }, inverseJoinColumns = { @JoinColumn(name = "candidat_id") })

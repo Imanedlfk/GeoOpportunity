@@ -25,5 +25,7 @@ public class Entreprise {
 
     private Recruteur recruteurs;
 
+    private List<Feedback> feedbacks = new ArrayList<>();
+
    private List<Offre> offres = new ArrayList<>();
 }

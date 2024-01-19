@@ -27,6 +27,9 @@ public class Entreprise {
     @OneToOne
     private Recruteur recruteurs;
 
+    @OneToMany(mappedBy = "entreprise_fedb", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Feedback> feedbacks = new ArrayList<>();
+
     @JsonIgnore
     @OneToMany(mappedBy = "entreprise", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Offre> offres = new ArrayList<>();

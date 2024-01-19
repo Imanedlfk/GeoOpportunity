@@ -28,7 +28,6 @@ public class Offre {
     private float longitude;
     private float latitude;
 
-    private List<Feedback> feedbacks = new ArrayList<>();
 
     private List<Candidat> candidats = new ArrayList<>();
 

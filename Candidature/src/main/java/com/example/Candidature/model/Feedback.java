@@ -18,6 +18,10 @@ public class Feedback {
     private long id;
     private String description;
     private Date date;
+
+
     private Candidat candidat;
-    private Offre offre;
+
+
+    private Entreprise entreprise;
 }

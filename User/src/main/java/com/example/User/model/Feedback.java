@@ -23,5 +23,5 @@ public class Feedback {
     private Candidat candidat;
 
 
-    private Offre offre;
+    private Entreprise entreprise;
 }

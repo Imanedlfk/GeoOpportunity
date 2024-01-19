@@ -2,6 +2,7 @@ package com.example.Offres.service;
 
 import com.example.Offres.client.DataEntrep;
 import com.example.Offres.model.Entreprise;
+import com.example.Offres.model.Feedback;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,6 @@ public class EntrepriseService {
     public void delete(long id)  {
         client.deleteById(id);
     }
+
+
 }

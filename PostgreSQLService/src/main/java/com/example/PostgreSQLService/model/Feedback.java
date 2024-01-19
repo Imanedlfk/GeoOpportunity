@@ -25,6 +25,6 @@ public class Feedback {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "offre_id")
-    private Offre offre;
+    @JoinColumn(name = "entreprise_id")
+    private Entreprise entreprise;
 }
