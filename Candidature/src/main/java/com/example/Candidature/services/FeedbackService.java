@@ -24,8 +24,7 @@ public class FeedbackService {
     }
 
     public Feedback save(Feedback feedback) {
-        System.out.println("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE "+feedback.getOffre().getId());
-        return client.save(feedback,feedback.getOffre().getId());
+        return client.save(feedback,feedback.getEntreprise().getId());
     }
 
     public void delete(long id) {

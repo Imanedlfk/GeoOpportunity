@@ -25,8 +25,8 @@ public class FeedbackController {
     }
 
     @PostMapping("/Add")
-    Feedback save(@RequestBody Feedback feedback,@RequestParam long offreID){
-        return Service.save(feedback,offreID);
+    Feedback save(@RequestBody Feedback feedback,@RequestParam long entrepID){
+        return Service.save(feedback,entrepID);
     }
 
     @GetMapping("/{id}")

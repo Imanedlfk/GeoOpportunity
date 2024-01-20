@@ -1,7 +1,8 @@
 package com.example.PostgreSQLService.service;
 
+import com.example.PostgreSQLService.model.Entreprise;
 import com.example.PostgreSQLService.model.Feedback;
-import com.example.PostgreSQLService.model.Offre;
+import com.example.PostgreSQLService.repository.EntrepriseRepository;
 import com.example.PostgreSQLService.repository.FeedbackRepository;
 import com.example.PostgreSQLService.repository.OffreRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -15,10 +16,12 @@ import java.util.Optional;
 
     private final FeedbackRepository Repo;
     private final OffreRepository Repoffre;
+    private final EntrepriseRepository Repoentrp;
 
-    public FeedbackService(FeedbackRepository repo, OffreRepository repoffre) {
+    public FeedbackService(FeedbackRepository repo, OffreRepository repoffre, EntrepriseRepository repoentrp) {
         Repo = repo;
         Repoffre = repoffre;
+        Repoentrp = repoentrp;
     }
 
     public List<Feedback> findAll() {
@@ -29,11 +32,10 @@ import java.util.Optional;
         return Repo.findById(id);
     }
 
-    public Feedback save(Feedback feedback, long offreID) {
-        Offre of = Repoffre.findById(offreID)
-                .orElseThrow(() -> new EntityNotFoundException("Offre with ID " + offreID + " not found"));
-        feedback.setOffre(of);
-        System.out.println("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE "+feedback.getOffre().getId());
+    public Feedback save(Feedback feedback, long entrepID) {
+        Entreprise of = Repoentrp.findById(entrepID)
+                .orElseThrow(() -> new EntityNotFoundException("entreprise with ID " + entrepID + " not found"));
+        feedback.setEntreprise(of);
         return Repo.save(feedback);
     }
 
