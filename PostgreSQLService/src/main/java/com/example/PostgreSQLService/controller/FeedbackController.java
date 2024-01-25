@@ -24,8 +24,8 @@ public class FeedbackController {
         Service.deleteById(id);
     }
 
-    @PostMapping("/Add")
-    Feedback save(@RequestBody Feedback feedback,@RequestParam long entrepID){
+    @PostMapping("/Add/{entrepID}")
+    Feedback save(@RequestBody Feedback feedback,@PathVariable("entrepID") long entrepID){
         return Service.save(feedback,entrepID);
     }
 

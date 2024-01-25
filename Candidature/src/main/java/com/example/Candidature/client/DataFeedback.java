@@ -14,8 +14,8 @@ public interface DataFeedback {
     @DeleteMapping("/delete/{id}")
     void deleteById(@PathVariable("id") long id);
 
-    @PostMapping("/Add")
-    Feedback save(@RequestBody Feedback feedback,@RequestParam long offreID);
+    @PostMapping("/Add/{entrepID}")
+    Feedback save(@RequestBody Feedback feedback,@PathVariable("entrepID") long entrepID);
 
     @GetMapping("/{id}")
     Optional<Feedback> findById(@PathVariable("id") long id);
