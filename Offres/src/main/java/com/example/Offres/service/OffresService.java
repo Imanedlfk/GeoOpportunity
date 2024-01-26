@@ -5,9 +5,7 @@ import com.example.Offres.client.DataCandidat;
 import com.example.Offres.client.DataEntrep;
 import com.example.Offres.model.*;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +44,13 @@ public class OffresService {
         return finals;
     }
 
-    public List<Offre> filtrDomaineContrat(String domaine, String contrat) {
-        return client.filtreDC(domaine,contrat);
+    public List<Offre> filtrDomaineContrat(String domaine, String contrat, String ville) {
+        List<Offre> offres=client.filtreDC(domaine,contrat);
+        List<Offre> finals=new ArrayList<Offre>();
+        for(Offre OF:offres){
+            if(OF.getVille().equals(ville)) finals.add(OF);
+        }
+        return finals;
     }
 
 

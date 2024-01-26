@@ -66,9 +66,9 @@ public class OffresController {
 
     //DOMAINE CONTRAT
     @GetMapping(value = "/filtreDomContrat")
-    public List<Offre> filtreDomContrat(@RequestParam String domaine, @RequestParam String contrat)
+    public List<Offre> filtreDomContrat(@RequestParam String domaine, @RequestParam String ville, @RequestParam String contrat)
     {
-        return Service.filtrDomaineContrat(domaine,contrat);
+        return Service.filtrDomaineContrat(domaine,contrat,ville);
     }
 
     //GET ALL CONDIDATEURS D UNE ENTREPRISE
